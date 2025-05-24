@@ -25,7 +25,7 @@ class TransportResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('no_kendaraan')
                     ->required()
-                    ->maxLength(100),
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('jenis_kendaraan')
                     ->maxLength(100),
                 Forms\Components\TextInput::make('merk')
@@ -46,14 +46,6 @@ class TransportResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('no_kendaraan')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('jenis_kendaraan')
@@ -70,6 +62,14 @@ class TransportResource extends Resource
                 Tables\Columns\TextColumn::make('kapasitas_penumpang')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
